@@ -7,6 +7,7 @@ public class SpaceshipTouchControls : MonoBehaviour
     public float Speed = 10;
     public float MinY = -3.5f;
     public float MaxY = 3.5f;
+    public float XInfluence = 0;
 
     Vector2 targetPos;
 
@@ -35,7 +36,8 @@ public class SpaceshipTouchControls : MonoBehaviour
     void HandleMoveToPosition(Vector3 rawPos)
     {
         var pos = Camera.main.ScreenToWorldPoint(rawPos);
-        if(pos.y > MaxY)
+        if(pos.x > XInfluence) { return; }
+        if (pos.y > MaxY)
         {
             pos.y = MaxY;
         }

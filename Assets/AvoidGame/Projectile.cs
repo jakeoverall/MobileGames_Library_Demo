@@ -6,11 +6,13 @@ public class Projectile : MonoBehaviour
 {
     public float Speed = 40;
     Vector2 target;
+    SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
         target.x = 20;
         target.y = transform.position.y;
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,7 +23,15 @@ public class Projectile : MonoBehaviour
             target,
             Time.deltaTime * Speed
          );
-        if(transform.position.x >= 20)
+
+        sprite.color = new Color(
+            sprite.color.r,
+            sprite.color.g,
+            sprite.color.b,
+            (1 - Mathf.Abs(transform.position.x + 6 / 6))
+        );
+
+        if(transform.position.x >= 1)
         {
             Destroy(gameObject);
         }
