@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentScore: 0
   HighScore: 0
+  ScoreName: AvoidGameHighScore

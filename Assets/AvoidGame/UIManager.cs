@@ -12,7 +12,10 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentScoreContainer.text = $"Score: {ScoreKeeper.CurrentScore}";
+        if(CurrentScoreContainer != null)
+        {
+            CurrentScoreContainer.text = $"Score: {ScoreKeeper.CurrentScore}";
+        }
         HighScoreContainer.text = $"Highest: {ScoreKeeper.HighScore}";
     }
 }
